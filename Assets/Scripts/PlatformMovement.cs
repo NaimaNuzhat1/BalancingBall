@@ -10,7 +10,7 @@ public class PlatformMovement : MonoBehaviour
     Vector3 movement;
     public Camera myCamera;
     public Canvas GameOverWin;
-   float collisionSpeed = -100f;
+   float collisionSpeed = -200f;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +70,7 @@ public class PlatformMovement : MonoBehaviour
         else
         {
             rb.isKinematic = false;
-            rb.AddForce(movement * speed *collisionSpeed);
+            rb.AddForce(direction * speed *collisionSpeed);
            
         }
 

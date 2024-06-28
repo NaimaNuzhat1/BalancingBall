@@ -11,7 +11,7 @@ public class CountHits : MonoBehaviour
     Rigidbody rb;
     public Camera myCamera;
 
-   // public Canvas GameOverWin;
+    // public Canvas GameOverWin;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,11 @@ public class CountHits : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        count++;
-        score.text = count.ToString();
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            count++;
+            score.text = count.ToString();
+
+        }
     }
 }
