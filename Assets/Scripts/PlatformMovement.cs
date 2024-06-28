@@ -10,6 +10,8 @@ public class PlatformMovement : MonoBehaviour
     Vector3 movement;
     public Camera myCamera;
     public Canvas GameOverWin;
+    float collisionSpeed = -25f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +68,7 @@ public class PlatformMovement : MonoBehaviour
         }
         else
         {
-            GameOverWin.gameObject.SetActive(true);
+            rb.MovePosition(transform.position + (-direction * speed * Time.deltaTime));
 
         }
 
