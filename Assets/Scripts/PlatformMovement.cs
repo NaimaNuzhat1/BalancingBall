@@ -51,9 +51,6 @@ public class PlatformMovement : MonoBehaviour
             }
             movement = new Vector3(moveHorizontal, 0f, 0f);
         }
-
-
-        //Debug.Log(Screen.width);
     }
     private void FixedUpdate()
     {
@@ -69,16 +66,7 @@ public class PlatformMovement : MonoBehaviour
         else
         {
             rb.MovePosition(transform.position + (-direction * speed * Time.deltaTime));
-
         }
 
-
-
-
-
     }
-
-
-
-
 }
