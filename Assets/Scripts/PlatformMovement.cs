@@ -10,7 +10,7 @@ public class PlatformMovement : MonoBehaviour
     Vector3 movement;
     public Camera myCamera;
     public Canvas GameOverWin;
-    float collisionSpeed = -25f;
+   float collisionSpeed = -100f;
 
     // Start is called before the first frame update
     void Start()
@@ -59,13 +59,19 @@ public class PlatformMovement : MonoBehaviour
     void moveCharecter(Vector3 direction)
     {
         Vector3 viewPos = myCamera.WorldToViewportPoint(rb.position);
-        if (viewPos.x <= 1.0f && viewPos.x >= 0f)
+        if (viewPos.x <= 0.9f && viewPos.x >= 0.1f &&
+            ((this.gameObject.name == "Platform" && viewPos.x >= 0.6f) || 
+            (this.gameObject.name == "Platform WASD" && viewPos.x <= 0.4f)))
         {
+            rb.isKinematic = true;
             rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
+
         }
         else
         {
-            rb.MovePosition(transform.position + (-direction * speed * Time.deltaTime));
+            rb.isKinematic = false;
+            rb.AddForce(movement * speed *collisionSpeed);
+           
         }
 
     }

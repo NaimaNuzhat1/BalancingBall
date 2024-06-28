@@ -11,7 +11,7 @@ public class CountHits : MonoBehaviour
     Rigidbody rb;
     public Camera myCamera;
 
-    public Canvas GameOverWin;
+   // public Canvas GameOverWin;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +23,6 @@ public class CountHits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 viewPos = myCamera.WorldToViewportPoint(rb.position);
-        if (viewPos.x > 1.0f || viewPos.x < 0f)
-        {
-            GameOverWin.gameObject.SetActive(true);
-        }
 
     }
     private void OnCollisionEnter(Collision collision)
